@@ -5,10 +5,10 @@ metadata:
   labels:
     app: netflix-app
 spec:
-  type: NodePort
+  type: LoadBalancer  # This is the key change to expose it with LoadBalancer
   ports:
   - port: 83
-    targetPort: 83
-    nodePort: 30007
+    targetPort: 80  # The container port where Netflix is running
   selector:
     app: netflix-app
+
